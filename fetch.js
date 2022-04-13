@@ -2,12 +2,12 @@
 // .then(response => response.json())
 // .then(jsons =>   console.log(jsons))
 
-function display(){
+ function display(){
 fetch('https://jsonplaceholder.typicode.com/users')
 .then(response => response.json())
 .then(jsons =>  replace(jsons))
 
-}
+ }
  
 
 function displayshow(){
@@ -24,6 +24,12 @@ function displayshowuser(){
 }
 
 // called function
- function replace(a){
-     console.log(a);
+ function replace(datas){
+     const ul= document.getElementById('users');
+     for(const data of datas){
+         console.log(data.name)
+         const li= document.createElement('li');
+         li.innerText=` name ${data.name} and    ${data.email}`;
+         ul.append(li);
+     }
  }
