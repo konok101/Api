@@ -3,13 +3,19 @@ const SearchFood=()=>{
     searchText= searchField.value;
   
     searchField.value='';
+
+    if(searchText ==0){
+
+    }
  
+else{
+  const url=`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
+  fetch(url)
+  .then(res=>res.json())
+  .then(data=> displaySearchREsult(data.meals))
+}
 
-
-   const url=`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
-   fetch(url)
-   .then(res=>res.json())
-   .then(data=> displaySearchREsult(data.meals))
+ 
   
 }
 
